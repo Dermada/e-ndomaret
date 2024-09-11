@@ -9,4 +9,3 @@ def show_main(request):
         'my_class': 'PBP A',      
     }
     return render(request, "main.html", context)
-
