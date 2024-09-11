@@ -11,7 +11,7 @@
   - Buat folder `templates` di dalam aplikasi `main`, kemudian buat template html `main`
   - Membuat Routing pada `urls.py` di Aplikasi `main`
 #### **2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.** ####
-![bagan guys]
+![bagan guys](http://Images/photo_2024-09-11_10-01-38.jpg)
 
 #### **3. Jelaskan fungsi git dalam pengembangan perangkat lunak!** ####
 Git memungkinkan tim pengembang untuk mengelola berbagai versi kode secara efisien. Setiap perubahan yang dilakukan pada kode dapat dilacak dan disimpan sebagai commit. Git juga mendukung pengembang bekerja bersama pada satu proyek secara bersamaan. 
