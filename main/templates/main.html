@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,3 +83,34 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
       <p>Lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
     </div>
   </div>
+
+{% if not products %}
+<p>Belum ada data Product.</p>
+{% else %}
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Price</th>
+    <th>Description</th>
+    <!-- <th>Mood Intensity</th> -->
+  </tr>
+
+  {% comment %} Berikut cara memperlihatkan data product di bawah baris ini 
+  {% endcomment %} 
+  {% for product in products %}
+  <tr>
+    <td>{{product.name}}</td>
+    <td>{{product.price}}</td>
+    <td>{{product.description}}</td>
+    <!-- <td>{{mood_entry.mood_intensity}}</td> -->
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+<br />
+
+<a href="{% url 'main:create_product_entry' %}">
+  <button>Add New Product</button>
+</a>
+{% endblock content %}
