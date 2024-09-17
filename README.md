@@ -26,7 +26,15 @@ Kita membutuhkan `csrf_token` untuk melindungi aplikasi dari serangan Cross-Site
 - update path urls pada `urls.py`
 
 #### **Screenshot hasil url pada Postman** ####
-![xml](Images\Screenshot 2024-09-17 114800.png)
-![xmlid](Images\Screenshot 2024-09-17 115121.png)
-![json](Images\Screenshot 2024-09-17 115144.png)
-![jsonid](Images\Screenshot 2024-09-17 115154.png)
+
+**xml**
+![xml](Images\Screenshot_2024-09-17_114800.png)
+
+**xml id**
+![xmlid](Images\Screenshot_2024-09-17_115121.png)
+
+**json**
+![json](Images\Screenshot_2024-09-17_115144.png)
+
+**json id**
+![jsonid](Images\Screenshot_2024-09-17_115154.png)
