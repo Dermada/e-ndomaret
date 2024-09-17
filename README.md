@@ -28,7 +28,7 @@ Kita membutuhkan `csrf_token` untuk melindungi aplikasi dari serangan Cross-Site
 #### **Screenshot hasil url pada Postman** ####
 
 **xml**
-![xml](images\Screenshot_2024-09-17_114800.png)
+![xml](Screenshot_2024-09-17_114800.png)
 
 **xml id**
 ![xmlid](Images\Screenshot_2024-09-17_115121.png)
