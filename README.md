@@ -1,3 +1,4 @@
+=======
 #### **1. Jelaskan mengapa kita memerlukan *data delivery* dalam pengimplementasian sebuah platform?** ####
 
 Data delivery diperlukan untuk memastikan bahwa data dapat diakses dan digunakan oleh berbagai komponen dalam platform. Ini memungkinkan integrasi yang mulus antara berbagai layanan dan aplikasi, memastikan bahwa data yang tepat tersedia pada waktu yang tepat untuk pengambilan keputusan dan operasi yang efisien.
