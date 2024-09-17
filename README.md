@@ -1,4 +1,5 @@
-=======
+#PR 3#
+
 #### **1. Jelaskan mengapa kita memerlukan *data delivery* dalam pengimplementasian sebuah platform?** ####
 
 Data delivery diperlukan untuk memastikan bahwa data dapat diakses dan digunakan oleh berbagai komponen dalam platform. Ini memungkinkan integrasi yang mulus antara berbagai layanan dan aplikasi, memastikan bahwa data yang tepat tersedia pada waktu yang tepat untuk pengambilan keputusan dan operasi yang efisien.
@@ -28,13 +29,13 @@ Kita membutuhkan `csrf_token` untuk melindungi aplikasi dari serangan Cross-Site
 #### **Screenshot hasil url pada Postman** ####
 
 **xml**
-![xml](Screenshot_2024-09-17_114800.png)
+![xml](https://github.com/user-attachments/assets/6574ffe9-1f22-452a-ac6e-d20eba923b63)
 
 **xml id**
-![xmlid](Images\Screenshot_2024-09-17_115121.png)
+![xmlid](https://github.com/user-attachments/assets/a4ccdb13-ba86-4bed-b3e8-1aebb9e74860)
 
 **json**
-![json](Images\Screenshot_2024-09-17_115144.png)
+![json](https://github.com/user-attachments/assets/d39e71bf-84d3-4ae1-86d8-a72be2ac0121)
 
 **json id**
-![jsonid](Images\Screenshot_2024-09-17_115154.png)
+![jsonid](https://github.com/user-attachments/assets/9fe9fa3b-ac36-4b6a-88b6-0c26088c0c49)
