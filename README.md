@@ -1,41 +1,48 @@
-# PR 3 #
 
-#### **1. Jelaskan mengapa kita memerlukan *data delivery* dalam pengimplementasian sebuah platform?** ####
+# Jawaban Pertanyaan README Tugas 4
 
-Data delivery diperlukan untuk memastikan bahwa data dapat diakses dan digunakan oleh berbagai komponen dalam platform. Ini memungkinkan integrasi yang mulus antara berbagai layanan dan aplikasi, memastikan bahwa data yang tepat tersedia pada waktu yang tepat untuk pengambilan keputusan dan operasi yang efisien.
 
-#### **2. Menurutmu, mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?** ####
+### **1. Apa perbedaan antara `HttpResponseRedirect()` dan `redirect()`?** ###
 
-JSON lebih baik dibandingkan XML dalam banyak kasus karena lebih ringan dan lebih mudah dibaca oleh manusia. JSON lebih populer karena sintaksnya yang sederhana dan kemampuannya untuk dengan mudah diintegrasikan dengan bahasa pemrograman modern, terutama JavaScript. JSON juga lebih efisien dalam hal parsing dan serialisasi data.
+- HttpResponseRedirect: Ini adalah kelas di Django yang digunakan untuk mengembalikan respons HTTP yang mengarahkan pengguna ke URL tertentu. Anda harus memberikan URL lengkap atau relatif sebagai argumen.
+- redirect: Ini adalah fungsi shortcut di Django yang lebih mudah digunakan. Fungsi ini dapat menerima URL, nama view, atau bahkan objek model dan secara otomatis akan mengonversinya menjadi URL yang sesuai.
 
-#### **3. Jelaskan fungsi git dalam pengembangan perangkat lunak!** ####
+### **2. Jelaskan cara kerja penghubungan model Product dengan User** ###
 
-Method `is_valid()` pada form Django digunakan untuk memeriksa apakah data yang dikirimkan ke form memenuhi semua aturan validasi yang telah ditentukan. Kita membutuhkan method ini untuk memastikan bahwa data yang diterima adalah valid sebelum diproses lebih lanjut, sehingga dapat mencegah kesalahan dan potensi masalah keamanan.
+Untuk menghubungkan model Product dengan User, Anda biasanya menggunakan ForeignKey. Berikut adalah langkah-langkahnya:
 
-#### **4. Menurut Anda, dari semua framework yang ada, mengapa framework Django dijadikan permulaan pembelajaran pengembangan perangkat lunak?** ####
+1. **Definisikan Model:** Buat model Product dan tambahkan field user yang merupakan ForeignKey ke model User.
+2. **Migrasi:** Jalankan perintah makemigrations dan migrate untuk membuat dan menerapkan migrasi.
+3. **Gunakan dalam View:** Dalam view, Anda bisa mengakses produk yang terkait dengan user tertentu.
 
-Kita membutuhkan `csrf_token` untuk melindungi aplikasi dari serangan Cross-Site Request Forgery (CSRF). Jika kita tidak menambahkan `csrf_token`, penyerang dapat membuat permintaan palsu dari situs lain yang tampak sah, yang dapat menyebabkan tindakan yang tidak diinginkan pada aplikasi kita. Tanpa `csrf_token`, penyerang dapat mengeksploitasi sesi pengguna yang sedang aktif untuk melakukan tindakan tanpa sepengetahuan pengguna.
+### **3. Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login? Jelaskan bagaimana Django mengimplementasikan kedua konsep tersebut.** ###
 
-#### **5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).** ####
+**Perbedaan antara Authentication dan Authorization**
+- Authentication: Proses verifikasi identitas pengguna. Ini biasanya dilakukan dengan memeriksa kredensial seperti username dan password.
+- Authorization: Proses menentukan apa yang diizinkan dilakukan oleh pengguna yang telah terautentikasi. Ini melibatkan pengecekan izin atau peran pengguna.
+Saat pengguna login, Django melakukan proses authentication dengan memverifikasi kredensial pengguna. Jika berhasil, Django membuat session untuk pengguna tersebut.
 
-- membuat berkas baru dengan nama `forms.py` untuk menerima products baru
-- menambahkan fungsi baru `create_mood_entry` yang menerima parameter `request`
-- tambahkan Fungsi `Products.objects.all()` digunakan untuk mengambil seluruh objek `Products` yang tersimpan pada *database*.
-- membuat berkas HTML untuk form dengan nama `create_product_entry.html`
-- menambahkan tampilan data *mood* dan tombol *new entry* pada `main.html`
-- Menambahkan 4 fungsi views baru untuk melihat objek yang sudah ditambahkan dalam format XML, JSON, XML by ID, dan JSON by ID
-- update path urls pada `urls.py`
+**Implementasi Authentication dan Authorization di Django**
+- Authentication: Django menggunakan `django.contrib.auth` untuk menangani proses login, logout, dan manajemen user.
+- Authorization: Django menggunakan izin dan grup untuk mengatur apa yang bisa dilakukan oleh pengguna.
 
-#### **Screenshot hasil url pada Postman** ####
+### **4. Bagaimana Django mengingat pengguna yang telah login? Jelaskan kegunaan lain dari cookies dan apakah semua cookies aman digunakan?** ###
 
-**xml**
-![xml](https://github.com/user-attachments/assets/6574ffe9-1f22-452a-ac6e-d20eba923b63)
+Django menggunakan session untuk mengingat pengguna yang telah login. Saat pengguna berhasil login, Django membuat session dan menyimpan session ID dalam cookie di browser pengguna.
 
-**xml id**
-![xmlid](https://github.com/user-attachments/assets/a4ccdb13-ba86-4bed-b3e8-1aebb9e74860)
+**Kegunaan Lain dari Cookies dan Keamanan**
+- Kegunaan Lain: Cookies dapat digunakan untuk menyimpan preferensi pengguna, melacak aktivitas pengguna, dan menyimpan data sementara.
+- Keamanan: Tidak semua cookies aman. Cookies yang menyimpan informasi sensitif harus dienkripsi dan diberi atribut HttpOnly dan Secure.
 
-**json**
-![json](https://github.com/user-attachments/assets/d39e71bf-84d3-4ae1-86d8-a72be2ac0121)
+### **5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).** ###
 
-**json id**
-![jsonid](https://github.com/user-attachments/assets/9fe9fa3b-ac36-4b6a-88b6-0c26088c0c49)
+- membuat fungsi `login_user` ke dalam `views.py`
+- membuat dan mengisi `login.html` untuk login pagenya
+- membuat fungsi `logout_user` ke dalam `views.py`
+- membuat *logout button* di `main.html`
+- restriksi halaman main dengan `@login_required(login_url='/login')`
+- menambahkan `last_login` pada `login_user` untuk melihat kapan terakhir kali login
+- menambahkan *last login* pada fungsi `show_main`
+- menghubungkan product entry dengan user menggunakan *foreignkey*
+- melakukan url routing untuk semua fungsi yang ditambahkan
+- migrate
