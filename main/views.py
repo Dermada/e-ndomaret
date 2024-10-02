@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect  
+from django.shortcuts import render, redirect, reverse
 from main.forms import ProductEntryForm
-from main.models import Product
+from main.models import ProductEntry
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core import serializers
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -14,14 +14,13 @@ import datetime
 @login_required(login_url='/login')
 
 def show_main(request):
-    Products = Product.objects.all()
-
+    product_entries = ProductEntry.objects.filter(user=request.user)
     context = {
         'name': request.user.username,
         'app_name': 'E-Ndomaret',  
         'my_name': 'Muhammad Daffa Abyaz Tjiptadi',        
         'my_class': 'PBP A',
-        'products': Products,
+        'product_entries': product_entries,
         'last_login': request.COOKIES['last_login'],
     }
     
@@ -40,19 +39,19 @@ def create_product_entry(request):
     return render(request, "create_product_entry.html", context)
 
 def show_xml(request):
-    data = Product.objects.all()
+    data = ProductEntry.objects.all()
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
 def show_json(request):
-    data = Product.objects.all()
+    data = ProductEntry.objects.all()
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def show_xml_by_id(request, id):
-    data = Product.objects.filter(pk=id)
+    data = ProductEntry.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
 def show_json_by_id(request, id):
-    data = Product.objects.filter(pk=id)
+    data = ProductEntry.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def register(request):
@@ -88,3 +87,26 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('main:login'))
     response.delete_cookie('last_login')
     return response
+
+def edit_product(request, id):
+    # Get mood entry berdasarkan id
+    product = ProductEntry.objects.get(pk = id)
+
+    # Set mood entry sebagai instance dari form
+    form = ProductEntryForm(request.POST or None, instance=product)
+
+    if form.is_valid() and request.method == "POST":
+        # Simpan form dan kembali ke halaman awal
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "edit_product.html", context)
+
+def delete_product(request, id):
+    # Get mood berdasarkan id
+    product = ProductEntry.objects.get(pk = id)
+    # Hapus mood
+    product.delete()
+    # Kembali ke halaman awal
+    return HttpResponseRedirect(reverse('main:show_main'))
