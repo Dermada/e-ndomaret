@@ -1,6 +1,6 @@
-# Jawaban Pertanyaan README Tugas 4
+# Jawaban Pertanyaan README Tugas 5
 
-### **1. Apa perbedaan antara `HttpResponseRedirect()` dan `redirect()`?** ###
+### **1. Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!?** ###
 
 - Specificity (Kekhususan): CSS menentukan elemen mana yang paling spesifik.
 
@@ -46,6 +46,7 @@ div {
 
 **Flexbox:**
 
+<<<<<<< HEAD
 Flexbox (Flexible Box Layout) adalah modul layout CSS yang dirancang untuk mengatur dan mendistribusikan ruang di sepanjang satu dimensi (baris atau kolom) dalam container. Flexbox sangat berguna untuk membuat layout yang fleksibel, di mana elemen di dalam container dapat dengan mudah diratakan (aligned), didistribusikan (distributed), dan diatur ulang (reordered).
 
 Kegunaan:
@@ -78,13 +79,9 @@ Kegunaan:
 
 ### **5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!** ###
 
-- membuat fungsi `login_user` ke dalam `views.py`
-- membuat dan mengisi `login.html` untuk login pagenya
-- membuat fungsi `logout_user` ke dalam `views.py`
-- membuat *logout button* di `main.html`
-- restriksi halaman main dengan `@login_required(login_url='/login')`
-- menambahkan `last_login` pada `login_user` untuk melihat kapan terakhir kali login
-- menambahkan *last login* pada fungsi `show_main`
-- menghubungkan product entry dengan user menggunakan *foreignkey*
-- melakukan url routing untuk semua fungsi yang ditambahkan
-- migrate
+- Menambahkan Tailwind ke Aplikasi
+- menambahkan fungsi *mood* ke aplikasi
+- menambahkan fitur hapus *mood* ke aplikasi
+- menambahkan *navbar* ke aplikasi
+- *styling* menggunakan Tailwind dan External CSS
+
